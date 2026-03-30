@@ -85,7 +85,7 @@
           Oportunidad de Inversión Inmobiliaria & Comercial
         </div>
         <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight">
-          Sea Dueño de la Carretera <br/>
+          Invierte en la Carretera <br/>
           <span class="text-blue-200">Más Transitada</span> del Sureste.
         </h1>
         <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mb-10 leading-relaxed">
@@ -252,6 +252,12 @@
                   18%
                 </div>
               </div>
+
+              <div class="pt-6 mt-2 border-t border-blue-800/50">
+                <button onclick="openLeadModal('Calculadora de ROI')" class="w-full bg-white hover:bg-zinc-100 text-brand-dark text-lg font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.15)] transform hover:scale-105 transition-all flex items-center justify-center">
+                  Quiero este Rendimiento <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                </button>
+              </div>
             </div>
           </div>
           
@@ -341,6 +347,10 @@
             <li class="flex items-center text-zinc-600 font-medium"><i data-lucide="check-circle-2" class="text-brand-dark mr-3 w-5 h-5"></i> Resto a 48 mensualidades cómodas</li>
             <li class="flex items-center text-zinc-600 font-medium"><i data-lucide="check-circle-2" class="text-brand-dark mr-3 w-5 h-5"></i> Protege su liquidez operativa</li>
           </ul>
+
+          <button onclick="openLeadModal('Opción A: Financiamiento 48 Meses')" class="mt-10 w-full bg-brand-dark hover:bg-brand-slate text-white font-bold py-4 rounded-xl transition-all shadow-md transform hover:scale-105 flex items-center justify-center">
+            Elegir Plan 48 Meses
+          </button>
         </div>
 
         <!-- Opción 2: Contado (Igualando colores de la captura: Azul Pizarra y Glow) -->
@@ -363,6 +373,10 @@
             <li class="flex items-center text-blue-100/90 font-medium"><i data-lucide="check-circle-2" class="text-blue-200 mr-3 shrink-0 w-5 h-5"></i> Acción liquidada 100%</li>
             <li class="flex items-center text-blue-100/90 font-medium"><i data-lucide="check-circle-2" class="text-blue-200 mr-3 shrink-0 w-5 h-5"></i> Prioridad en futuras rondas de inversión</li>
           </ul>
+
+          <button onclick="openLeadModal('Opción B: Contado con Bono del 6%')" class="mt-10 w-full bg-white hover:bg-gray-100 text-brand-dark font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] transform hover:scale-105 flex items-center justify-center">
+            Elegir Plan de Contado
+          </button>
         </div>
       </div>
 
@@ -391,7 +405,7 @@
         </p>
         
         <ul class="space-y-6">
-          <li class="flex">
+          <li class="flex items-start">
             <div class="mt-1 bg-white border border-zinc-200 text-brand-dark p-2 rounded-lg shrink-0 mr-4 shadow-sm">
               <i data-lucide="smartphone" class="w-6 h-6"></i>
             </div>
@@ -400,7 +414,7 @@
               <p class="text-zinc-600 text-sm">Vea exactamente cuánto está generando su fracción diariamente. Sin reportes mensuales lentos.</p>
             </div>
           </li>
-          <li class="flex">
+          <li class="flex items-start">
             <div class="mt-1 bg-white border border-zinc-200 text-brand-dark p-2 rounded-lg shrink-0 mr-4 shadow-sm">
               <i data-lucide="arrow-right" class="w-6 h-6"></i>
             </div>
@@ -409,7 +423,7 @@
               <p class="text-zinc-600 text-sm">Solicite el retiro de sus utilidades generadas directamente a su cuenta bancaria. Proceso rápido de 3 a 7 días hábiles.</p>
             </div>
           </li>
-          <li class="flex">
+          <li class="flex items-start">
             <div class="mt-1 bg-white border border-zinc-200 text-brand-dark p-2 rounded-lg shrink-0 mr-4 shadow-sm">
               <i data-lucide="clock" class="w-6 h-6"></i>
             </div>
@@ -460,7 +474,7 @@
       <p class="text-xl md:text-2xl text-blue-100 mb-10 font-medium">
         Con el bono del 6% y el plan a 48 meses, el mercado está reaccionando rápido. No deje que la inflación siga robando su dinero.
       </p>
-      <button class="bg-white hover:bg-gray-100 text-brand-dark text-xl font-bold py-5 px-12 rounded-xl shadow-xl transform hover:scale-105 transition-all w-full md:w-auto">
+      <button onclick="openLeadModal('Interés General - CTA Final')" class="bg-white hover:bg-gray-100 text-brand-dark text-xl font-bold py-5 px-12 rounded-xl shadow-xl transform hover:scale-105 transition-all w-full md:w-auto">
         Solicitar Contrato de Promesa
       </button>
       <p class="mt-6 text-blue-200 text-sm font-medium">
@@ -478,6 +492,69 @@
       © 2026 CERVA Inversiones & Smart Gas. Desarrollado con ⚡️.
     </div>
   </footer>
+
+  <!-- MODAL DE CAPTURA DE LEADS -->
+  <div id="lead-modal" class="fixed inset-0 z-50 hidden bg-brand-dark/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 relative transform scale-95 transition-transform duration-300" id="lead-modal-content">
+      <button onclick="closeLeadModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-brand-dark transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-dark">
+          <i data-lucide="file-signature" class="w-8 h-8"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-brand-dark">Asegura tu Acción</h3>
+        <p class="text-sm text-zinc-500 mt-2">Estás a un paso de recibir tu pre-aprobación y el machote del contrato. Compártenos tus datos.</p>
+      </div>
+
+      <form id="lead-form" onsubmit="submitLeadForm(event)" class="space-y-4">
+        <input type="hidden" id="selected-plan" name="plan" value="">
+        
+        <div>
+          <label class="block text-sm font-bold text-brand-dark mb-1">Nombre Completo</label>
+          <input type="text" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-dark/50" placeholder="Ej. Carlos Mendoza">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-brand-dark mb-1">Correo Electrónico</label>
+          <input type="email" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-dark/50" placeholder="carlos@correo.com">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-brand-dark mb-1">Teléfono Móvil (WhatsApp)</label>
+          <input type="tel" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-dark/50" placeholder="+52 999 000 0000">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-bold text-brand-dark mb-1">¿Con qué capital te gustaría iniciar tu ruta como inversionista?</label>
+          <select required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-dark/50 text-zinc-700">
+            <option value="" disabled selected>Selecciona tu rango de inversión inicial...</option>
+            <option value="1 Acción (Enganche 103k)">1 Acción (Enganche $103,500 MXN)</option>
+            <option value="1 Acción (Contado 690k)">1 Acción de Contado ($690,000 MXN)</option>
+            <option value="2-4 Acciones">2 a 4 Acciones (Inversión Escalonada)</option>
+            <option value="5+ Acciones">5+ Acciones (Inversión Institucional)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full mt-6 bg-brand-dark hover:bg-brand-slate text-white font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center">
+          <span id="submit-btn-text">Quiero Recibir la Información</span>
+        </button>
+        
+        <p class="text-xs text-center text-zinc-400 mt-4">Tus datos están protegidos. Sin spam, prometido.</p>
+      </form>
+      
+      <div id="success-message" class="hidden text-center py-8">
+        <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-brand-dark mb-2">¡Solicitud Exitosa!</h3>
+        <p class="text-zinc-600">Un Asesor Patrimonial revisará tu perfil y te contactará vía WhatsApp para enviarte tu propuesta.</p>
+        <button onclick="closeLeadModal()" class="mt-8 text-brand-dark font-bold underline hover:text-brand-slate">Volver a la página</button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- LÓGICA JAVASCRIPT: Calculadora, API Gemini, Intersecciones -->
   <script>
@@ -644,6 +721,52 @@
         btnEl.disabled = false;
         btnText.innerHTML = 'Generar Estrategia Personalizada ✨';
       }
+    }
+
+    // --- Lógica del Modal de Captura de Leads ---
+    const leadModal = document.getElementById('lead-modal');
+    const leadModalContent = document.getElementById('lead-modal-content');
+    const selectedPlanInput = document.getElementById('selected-plan');
+    const leadForm = document.getElementById('lead-form');
+    const successMessage = document.getElementById('success-message');
+
+    function openLeadModal(planName) {
+      selectedPlanInput.value = planName; // Registramos de qué botón viene
+      leadModal.classList.remove('hidden');
+      // Pequeño timeout para permitir la transición CSS de opacidad
+      setTimeout(() => {
+        leadModal.classList.remove('opacity-0');
+        leadModalContent.classList.remove('scale-95');
+      }, 10);
+    }
+
+    function closeLeadModal() {
+      leadModal.classList.add('opacity-0');
+      leadModalContent.classList.add('scale-95');
+      // Esperar a que termine la animación para ocultarlo
+      setTimeout(() => {
+        leadModal.classList.add('hidden');
+        leadForm.classList.remove('hidden');
+        successMessage.classList.add('hidden');
+        leadForm.reset();
+      }, 300);
+    }
+
+    function submitLeadForm(e) {
+      e.preventDefault();
+      const btnText = document.getElementById('submit-btn-text');
+      btnText.innerHTML = '<i data-lucide="loader-2" class="animate-spin mr-2 w-5 h-5"></i> Procesando solicitud...';
+      lucide.createIcons(); // renderizar icono de carga
+      
+      // Aquí puedes conectar tu Webhook (ej. Zapier, Make o tu CRM)
+      // fetch('TU_WEBHOOK_AQUI', { method: 'POST', body: new FormData(leadForm) }).then(...)
+      
+      // Simulamos un retraso de red para dar retroalimentación visual
+      setTimeout(() => {
+        leadForm.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+        btnText.innerHTML = 'Quiero Recibir la Información';
+      }, 1500);
     }
 
   </script>
